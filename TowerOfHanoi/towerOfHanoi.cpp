@@ -12,18 +12,20 @@ long long toh(int N, int from, int to, int aux)
     int count = 1;
     if (N == 1)
     {
-        cout << "move disk 1 from rod " << from << " to rod " << to << endl;
+        cout << "Move disk 1 from rod " << from << " to rod " << to << endl;
         return count;
     }
     count += toh(N - 1, from, aux, to);
-    cout << "move disk " << N << " from rod " << from << " to rod " << to << endl;
+    cout << "Move disk " << N << " from rod " << from << " to rod " << to << endl;
     count += toh(N - 1, aux, to, from);
     return count;
 }
 int main()
 {
     int N;
+    cout << "Enter the number of disk: ";
     cin >> N;
-    cout << toh(N, 1, 3, 2) << endl;
+    cout << "The moving instructions are: " << endl
+         << toh(N, 1, 3, 2) << endl;
     return 0;
 }
